@@ -19,5 +19,8 @@ namespace MovieGo_MasonAssignment.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "Field required")]
         [Range(0, 10, ErrorMessage = "Movies can only be rated from 0-10")]
         public double UserRating { get; set; }
+
+        public User User { get; set; }
+        public Movie Movie { get; set; }
     }
 }
