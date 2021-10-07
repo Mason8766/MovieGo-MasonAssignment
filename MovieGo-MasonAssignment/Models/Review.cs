@@ -13,9 +13,11 @@ namespace MovieGo_MasonAssignment.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "Field required")]
         public string Title { get; set; }
 
+        [Display(Name = "Review")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Field required")]
         public string ReviewPara { get; set; }
 
+        [Display(Name = "Rating")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Field required")]
         [Range(0, 10, ErrorMessage = "Movies can only be rated from 0-10")]
         public double UserRating { get; set; }
