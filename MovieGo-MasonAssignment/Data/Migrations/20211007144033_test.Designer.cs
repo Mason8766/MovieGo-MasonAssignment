@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MovieGo_MasonAssignment.Data;
 
 namespace MovieGo_MasonAssignment.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211007144033_test")]
+    partial class test
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -226,10 +228,15 @@ namespace MovieGo_MasonAssignment.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("GenreId1")
+                        .HasColumnType("int");
+
                     b.Property<string>("GenreName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("GenreId");
+
+                    b.HasIndex("GenreId1");
 
                     b.ToTable("Genres");
                 });
@@ -361,10 +368,17 @@ namespace MovieGo_MasonAssignment.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("MovieGo_MasonAssignment.Models.Genre", b =>
+                {
+                    b.HasOne("MovieGo_MasonAssignment.Models.Genre", null)
+                        .WithMany("Genres")
+                        .HasForeignKey("GenreId1");
+                });
+
             modelBuilder.Entity("MovieGo_MasonAssignment.Models.Movie", b =>
                 {
                     b.HasOne("MovieGo_MasonAssignment.Models.Genre", "Genre")
-                        .WithMany("Movies")
+                        .WithMany()
                         .HasForeignKey("GenreId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -393,7 +407,7 @@ namespace MovieGo_MasonAssignment.Data.Migrations
 
             modelBuilder.Entity("MovieGo_MasonAssignment.Models.Genre", b =>
                 {
-                    b.Navigation("Movies");
+                    b.Navigation("Genres");
                 });
 
             modelBuilder.Entity("MovieGo_MasonAssignment.Models.Movie", b =>
