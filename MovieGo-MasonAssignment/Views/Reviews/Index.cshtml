@@ -4,25 +4,45 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>MovieGo Reviews</h1>
+<p>The Place to be for the best and greatest movie Reviews</p>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
+            <p>Film: @Html.DisplayFor(modelItem => item.Movie.Name)</p>
+            <p>Written by: @Html.DisplayFor(modelItem => item.User.Username)</p>
+            <p>
+                <a asp-action="Edit" asp-route-id="@item.ReviewId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ReviewId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ReviewId">Delete</a>
+            </p>   
+            
+           
+        </li>
+
+
+
+    }
+</ul>
+<!--
 <table class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReviewPara)
-            </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.UserRating)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.User)
+                @Html.DisplayNameFor(model => model.User.Username)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Movie)
@@ -36,14 +56,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReviewPara)
-            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.UserRating)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.User.UserId)
+                @Html.DisplayFor(modelItem => item.User.Username)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Movie.Name)
@@ -56,4 +74,5 @@
         </tr>
 }
     </tbody>
+   -->
 </table>

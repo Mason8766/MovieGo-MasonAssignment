@@ -48,7 +48,7 @@ namespace MovieGo_MasonAssignment.Controllers
         // GET: Movies/Create
         public IActionResult Create()
         {
-            ViewData["GenreId"] = new SelectList(_context.Genres, "GenreId", "GenreId");
+            ViewData["GenreId"] = new SelectList(_context.Genres, "GenreId", "GenreName");
             return View();
         }
 
