@@ -9,8 +9,9 @@ namespace MovieGo_MasonAssignment.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
-        public DbSet<Movie> Movies { get; set; }
         public DbSet<Review> Reviews { get; set; }
+        public DbSet<Movie> Movies { get; set; }
+       
         public DbSet<Genre> Genres { get; set; }
         public DbSet<User> Users { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
