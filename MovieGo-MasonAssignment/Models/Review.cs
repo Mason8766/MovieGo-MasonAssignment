@@ -22,7 +22,10 @@ namespace MovieGo_MasonAssignment.Models
         [Range(0, 10, ErrorMessage = "Movies can only be rated from 0-10")]
         public double UserRating { get; set; }
 
+        [Display(Name = "Movie")]
         public int MovieId { get; set; }
+
+        [Display(Name = "User")]
         public int UserId { get; set; }
 
         public User User { get; set; }

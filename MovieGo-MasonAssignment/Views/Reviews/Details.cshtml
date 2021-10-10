@@ -37,8 +37,10 @@
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Movie)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Movie.Name)
+        <dd class="col-sm-10">
+            <a asp-controller="Movies" asp-action="details" asp-route-id="@Model.MovieId">@Html.DisplayFor(model => model.Movie.Name)</a>
+   
+           
         </dd>
     </dl>
 </div>

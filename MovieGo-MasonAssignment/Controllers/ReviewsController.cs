@@ -68,7 +68,7 @@ namespace MovieGo_MasonAssignment.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["MovieId"] = new SelectList(_context.Movies, "MovieId", "Name", review.MovieId);
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", review.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Username", review.UserId);
             return View(review);
         }
 
@@ -86,7 +86,7 @@ namespace MovieGo_MasonAssignment.Controllers
                 return NotFound();
             }
             ViewData["MovieId"] = new SelectList(_context.Movies, "MovieId", "Name", review.MovieId);
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", review.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Username", review.UserId);
             return View(review);
         }
 
@@ -123,7 +123,7 @@ namespace MovieGo_MasonAssignment.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["MovieId"] = new SelectList(_context.Movies, "MovieId", "Name", review.MovieId);
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", review.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Username", review.UserId);
             return View(review);
         }
 

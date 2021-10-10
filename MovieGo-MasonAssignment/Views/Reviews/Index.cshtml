@@ -10,12 +10,13 @@
 
 <p>
     <a asp-action="Create">Create New</a>
+    
 </p>
 <ul>
     @foreach (var item in Model)
     {
-        <li>
-            <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
+        <li id="timeline" name="timeline">
+            <h4 >@Html.DisplayFor(modelItem => item.Title)</h4>
             <p>Film: @Html.DisplayFor(modelItem => item.Movie.Name)</p>
             <p>Written by: @Html.DisplayFor(modelItem => item.User.Username)</p>
             <p>
