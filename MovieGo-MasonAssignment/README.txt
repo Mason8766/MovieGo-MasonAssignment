@@ -1,0 +1,1 @@
+﻿MovieGo is a online website that stores both movie information, and general reviews from the public. MovieGo is running on microsoft Azure, and uses templates from visual studios. MovieGo also runs bootstrap 5, but no paticular theme is used. The website  also links the movie object, inside the review detail view, having both models in 1 view.
