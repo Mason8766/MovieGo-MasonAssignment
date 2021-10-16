@@ -23,7 +23,7 @@ namespace MovieGo_MasonAssignment.Models
         [Display(Name = "Genre")]
         public int GenreId { get; set; }
 
-        public Genre Genre { get; set; }
-        public List<Review> Reviews { get; set; }
+        public Genre Genre { get; set; } //linked with genre
+        public List<Review> Reviews { get; set; }//linked with reviews
     }
 }

@@ -12,6 +12,6 @@ namespace MovieGo_MasonAssignment.Models
         [Display(Name = "Genre")]
         public string GenreName { get; set; }
 
-        public List<Movie> Movies { get; set; }
+        public List<Movie> Movies { get; set; } //linked with movie object
     }
 }

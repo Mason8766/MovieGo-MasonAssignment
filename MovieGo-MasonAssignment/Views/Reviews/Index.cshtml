@@ -12,8 +12,9 @@
     <a asp-action="Create">Create New</a>
     
 </p>
+<!--Custom template, to reflect reviews better-->
 <ul>
-    @foreach (var item in Model)
+    @foreach (var item in Model)//for every review, print out the div element with all info
     {
         <li id="timeline" name="timeline">
             <h4 >@Html.DisplayFor(modelItem => item.Title)</h4>

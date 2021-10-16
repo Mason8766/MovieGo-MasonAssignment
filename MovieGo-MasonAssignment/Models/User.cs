@@ -10,7 +10,7 @@ namespace MovieGo_MasonAssignment.Models
         public int UserId { get; set; }
         public string Username { get; set; }
 
-        public List<Review> Reviews { get; set; }
+        public List<Review> Reviews { get; set; }//linked with review
 
     }
 }

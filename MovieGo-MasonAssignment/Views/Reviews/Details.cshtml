@@ -38,7 +38,7 @@
             @Html.DisplayNameFor(model => model.Movie)
         </dt>
         <dd class="col-sm-10">
-            <a asp-controller="Movies" asp-action="details" asp-route-id="@Model.MovieId">@Html.DisplayFor(model => model.Movie.Name)</a>
+            <a asp-controller="Movies" asp-action="details" asp-route-id="@Model.MovieId">@Html.DisplayFor(model => model.Movie.Name)</a> <!--Allows user to travle to movie detail view, useing the id field and url-->
    
            
         </dd>

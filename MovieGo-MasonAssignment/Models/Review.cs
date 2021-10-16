@@ -28,7 +28,7 @@ namespace MovieGo_MasonAssignment.Models
         [Display(Name = "User")]
         public int UserId { get; set; }
 
-        public User User { get; set; }
-        public Movie Movie { get; set; }
+        public User User { get; set; }//linked with user
+        public Movie Movie { get; set; }//linked with movie
     }
 }
