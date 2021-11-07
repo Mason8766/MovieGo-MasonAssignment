@@ -35,6 +35,17 @@ namespace MovieGo_MasonAssignment
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+
+            // enable Google Auth
+            services.AddAuthentication()
+                .AddGoogle(options =>
+                {
+                    // ref Google Auth section in appsettings.json
+                    IConfigurationSection googleAuth = Configuration.GetSection("Authentication:Google");
+
+                    options.ClientId = googleAuth["ClientId"];
+                    options.ClientSecret = googleAuth["ClientSecret"];
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
