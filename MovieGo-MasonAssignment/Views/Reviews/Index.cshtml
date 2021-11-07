@@ -6,27 +6,31 @@
 
 <h1>MovieGo Reviews</h1>
 <p>The Place to be for the best and greatest movie Reviews</p>
-<a asp-controller="Users" asp-action="Index">Add New User</a>
 
-<p>
-    <a asp-action="Create">Create New</a>
-    
-</p>
+@if (User.Identity.IsAuthenticated)
+{
+    <a asp-controller="Users" asp-action="Index">Add New User</a>
+    <p>
+        <a asp-action="Create">Create New</a>
+
+    </p>
+}
 <!--Custom template, to reflect reviews better-->
 <ul>
     @foreach (var item in Model)//for every review, print out the div element with all info
     {
-        <li id="timeline" name="timeline">
-            <h4 >@Html.DisplayFor(modelItem => item.Title)</h4>
-            <p>Film: @Html.DisplayFor(modelItem => item.Movie.Name)</p>
-            <p>Written by: @Html.DisplayFor(modelItem => item.User.Username)</p>
-            <p>
-                <a asp-action="Edit" asp-route-id="@item.ReviewId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ReviewId">Details</a> |
+    <li id="timeline" name="timeline">
+        <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
+        <p>Film: @Html.DisplayFor(modelItem => item.Movie.Name)</p>
+        <p>Written by: @Html.DisplayFor(modelItem => item.User.Username)</p>
+        <p>
+            <a asp-action="Details" asp-route-id="@item.ReviewId">Details</a>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a asp-action="Edit" asp-route-id="@item.ReviewId">Edit</a> 
                 <a asp-action="Delete" asp-route-id="@item.ReviewId">Delete</a>
-            </p>   
-            
-           
+            }
+        </p>
         </li>
 
 
@@ -78,4 +82,4 @@
 }
     </tbody>
    -->
-</table>
+    </table>

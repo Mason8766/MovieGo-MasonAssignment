@@ -6,11 +6,11 @@
 
 <h1>The Movie Vault</h1>
 <p>Browse our catalog of some of the best films of the era!</p>
-<a asp-controller="Genres" asp-action="Index">Add New Genre</a>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+@if (User.Identity.IsAuthenticated) { 
+    <a asp-controller="Genres" asp-action="Index">Add New Genre</a>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>}
 <table class="table">
     <thead>
         <tr>
@@ -30,26 +30,29 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Year)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genre.GenreId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.MovieId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.MovieId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.MovieId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre.GenreId)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.MovieId">Details</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.MovieId">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.MovieId">Delete</a>}
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

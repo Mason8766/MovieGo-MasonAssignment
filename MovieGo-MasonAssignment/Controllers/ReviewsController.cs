@@ -11,7 +11,7 @@ using MovieGo_MasonAssignment.Models;
 
 namespace MovieGo_MasonAssignment.Controllers
 {
-    [Authorize]
+    
     public class ReviewsController : Controller
     {
         private readonly ApplicationDbContext _context;
