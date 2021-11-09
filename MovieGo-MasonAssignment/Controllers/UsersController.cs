@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -42,7 +43,7 @@ namespace MovieGo_MasonAssignment.Controllers
 
             return View(user);
         }
-
+        [Authorize]
         // GET: Users/Create
         public IActionResult Create()
         {
@@ -64,7 +65,7 @@ namespace MovieGo_MasonAssignment.Controllers
             }
             return View(user);
         }
-
+        [Authorize]
         // GET: Users/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -115,7 +116,7 @@ namespace MovieGo_MasonAssignment.Controllers
             }
             return View(user);
         }
-
+        [Authorize]
         // GET: Users/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

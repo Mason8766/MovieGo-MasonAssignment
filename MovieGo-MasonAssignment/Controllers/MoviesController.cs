@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ namespace MovieGo_MasonAssignment.Controllers
 {
     public class MoviesController : Controller
     {
+       
         private readonly ApplicationDbContext _context;
 
         public MoviesController(ApplicationDbContext context)
@@ -44,7 +46,7 @@ namespace MovieGo_MasonAssignment.Controllers
 
             return View(movie);
         }
-
+        [Authorize]
         // GET: Movies/Create
         public IActionResult Create()
         {
@@ -68,7 +70,7 @@ namespace MovieGo_MasonAssignment.Controllers
             ViewData["GenreId"] = new SelectList(_context.Genres, "GenreId", "GenreId", movie.GenreId);
             return View(movie);
         }
-
+        [Authorize]
         // GET: Movies/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -121,7 +123,7 @@ namespace MovieGo_MasonAssignment.Controllers
             ViewData["GenreId"] = new SelectList(_context.Genres, "GenreId", "GenreName", movie.GenreId);
             return View(movie);
         }
-
+        [Authorize]
         // GET: Movies/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

@@ -47,7 +47,7 @@ namespace MovieGo_MasonAssignment.Controllers
 
             return View(review);
         }
-
+        [Authorize]
         // GET: Reviews/Create
         public IActionResult Create()
         {
@@ -73,7 +73,7 @@ namespace MovieGo_MasonAssignment.Controllers
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Username", review.UserId);
             return View(review);
         }
-
+        [Authorize]
         // GET: Reviews/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -128,7 +128,7 @@ namespace MovieGo_MasonAssignment.Controllers
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Username", review.UserId);
             return View(review);
         }
-
+        [Authorize]
         // GET: Reviews/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
