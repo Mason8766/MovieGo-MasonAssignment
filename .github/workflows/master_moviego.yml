@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'movieGo'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_913946F487684E0BB68663A434AD74F0 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3CEB2BCCCA8C4E389EEE8A90C7108A55 }}
           package: .
