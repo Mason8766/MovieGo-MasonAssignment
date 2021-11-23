@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieGo-MasonAssignment", "MovieGo-MasonAssignment\MovieGo-MasonAssignment.csproj", "{A772E1E7-8136-4A0E-9545-930A80A4D9DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieGo-MasonAssignment", "MovieGo-MasonAssignment\MovieGo-MasonAssignment.csproj", "{A772E1E7-8136-4A0E-9545-930A80A4D9DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieGoTest", "MovieGoTest\MovieGoTest.csproj", "{678B1F7E-8AC3-47AD-95CD-9B82739A223E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A772E1E7-8136-4A0E-9545-930A80A4D9DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A772E1E7-8136-4A0E-9545-930A80A4D9DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A772E1E7-8136-4A0E-9545-930A80A4D9DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{678B1F7E-8AC3-47AD-95CD-9B82739A223E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{678B1F7E-8AC3-47AD-95CD-9B82739A223E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{678B1F7E-8AC3-47AD-95CD-9B82739A223E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{678B1F7E-8AC3-47AD-95CD-9B82739A223E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -25,7 +25,7 @@ namespace MovieGo_MasonAssignment.Controllers
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Movies.Include(m => m.Genre);
-            return View(await applicationDbContext.ToListAsync());
+            return View("Index",await applicationDbContext.ToListAsync());
         }
 
         // GET: Movies/Details/5
