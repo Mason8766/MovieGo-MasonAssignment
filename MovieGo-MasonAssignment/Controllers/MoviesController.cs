@@ -33,7 +33,7 @@ namespace MovieGo_MasonAssignment.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return View("404");
             }
 
             var movie = await _context.Movies
@@ -41,10 +41,10 @@ namespace MovieGo_MasonAssignment.Controllers
                 .FirstOrDefaultAsync(m => m.MovieId == id);
             if (movie == null)
             {
-                return NotFound();
+                return View("404");
             }
 
-            return View(movie);
+            return View("details",movie);
         }
         [Authorize]
         // GET: Movies/Create

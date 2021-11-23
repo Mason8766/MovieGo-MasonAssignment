@@ -81,6 +81,42 @@ namespace MovieGoTest
         }
 
 
+        //Details test
+        [TestMethod]
+        public void DetailsNoId()
+        {
+            //act
+            var results = (ViewResult)controller.Details(null).Result;
+            //assert
+            Assert.AreEqual("404", results.ViewName);
+        }
+        [TestMethod]
+        public void DetailsInvalidId()
+        {
+            //act
+            var results = (ViewResult)controller.Details(1000).Result;
+            //assert
+            Assert.AreEqual("404", results.ViewName);
+        }
+        [TestMethod]
+        public void DetailsValidId()
+        {
+            //act
+            var results = (ViewResult)controller.Details(1).Result;
+            Movie movie = (Movie)results.Model;
+            //assert
+            Assert.AreEqual(movies[0], movie);
+        }
+        [TestMethod]
+        public void DetailsValidIdView()
+        {
+            //act
+            var results = (ViewResult)controller.Details(1).Result;
+         
+            //assert
+            Assert.AreEqual("details", results.ViewName);
+        }
+
 
     }
 }
