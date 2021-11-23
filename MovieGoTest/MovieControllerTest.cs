@@ -60,6 +60,7 @@ namespace MovieGoTest
             }
             _context.SaveChanges();
         }
+        #region index
 
         //INDEX TESTING
         [TestMethod]
@@ -79,9 +80,10 @@ namespace MovieGoTest
             //assert
             CollectionAssert.AreEqual(movies, model);
         }
-
+        #endregion
 
         //Details test
+        #region Details
         [TestMethod]
         public void DetailsNoId()
         {
@@ -116,7 +118,7 @@ namespace MovieGoTest
             //assert
             Assert.AreEqual("details", results.ViewName);
         }
-
+        #endregion
 
     }
 }
