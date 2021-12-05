@@ -68,7 +68,7 @@ namespace MovieGo_MasonAssignment.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["GenreId"] = new SelectList(_context.Genres, "GenreId", "GenreId", movie.GenreId);
-            return View(movie);
+            return View("Create",movie);
         }
         [Authorize]
         // GET: Movies/Edit/5
@@ -76,16 +76,16 @@ namespace MovieGo_MasonAssignment.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return View("404");
             }
 
             var movie = await _context.Movies.FindAsync(id);
             if (movie == null)
             {
-                return NotFound();
+                return View("404");
             }
             ViewData["GenreId"] = new SelectList(_context.Genres, "GenreId", "GenreName", movie.GenreId);
-            return View(movie);
+            return View("Edit",movie);
         }
 
         // POST: Movies/Edit/5
@@ -97,7 +97,7 @@ namespace MovieGo_MasonAssignment.Controllers
         {
             if (id != movie.MovieId)
             {
-                return NotFound();
+                return View("404");
             }
 
             if (ModelState.IsValid)
@@ -121,7 +121,7 @@ namespace MovieGo_MasonAssignment.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["GenreId"] = new SelectList(_context.Genres, "GenreId", "GenreName", movie.GenreId);
-            return View(movie);
+            return View("Edit",movie);
         }
         [Authorize]
         // GET: Movies/Delete/5
@@ -129,7 +129,7 @@ namespace MovieGo_MasonAssignment.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return View("404");
             }
 
             var movie = await _context.Movies
@@ -137,10 +137,10 @@ namespace MovieGo_MasonAssignment.Controllers
                 .FirstOrDefaultAsync(m => m.MovieId == id);
             if (movie == null)
             {
-                return NotFound();
+                return View("404");
             }
 
-            return View(movie);
+            return View("Delete",movie);
         }
 
         // POST: Movies/Delete/5
